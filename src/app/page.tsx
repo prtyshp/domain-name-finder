@@ -51,6 +51,8 @@ export default function Home() {
           if (clean && clean.toLowerCase().endsWith(".com")) {
             setDomains((prev) => [...prev, { name: clean }]);
             setLoadedCount((prev) => prev + 1);
+          } else if (clean.toLowerCase().includes("no available domains")) {
+            setErrorMsg(clean);
           }
         }
       }
