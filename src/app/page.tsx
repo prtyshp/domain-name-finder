@@ -124,7 +124,7 @@ export default function Home() {
 
       {isLoading && (
         <div className="text-sm text-gray-600 mt-2 mb-4">
-          Loaded {loadedCount}/10
+          Loaded {loadedCount}
         </div>
       )}
 

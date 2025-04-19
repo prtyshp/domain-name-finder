@@ -88,7 +88,7 @@ async function isDomainAvailable(domain: string): Promise<boolean> {
             count++;
           }
           if (count >= 5) break;
-          await new Promise((r) => setTimeout(r, 10)); // small throttle
+          await new Promise((r) => setTimeout(r, 2)); // small throttle
         }
         console.log(`✅ Done. Scanned ${checked}, found ${count} available.`);
         controller.close();
