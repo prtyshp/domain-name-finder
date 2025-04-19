@@ -74,7 +74,7 @@ async function isDomainAvailable(domain: string): Promise<boolean> {
       );
 
     let count = 0;
-
+    let checked = 0  
     const encoder = new TextEncoder();
 
     const stream = new ReadableStream({
@@ -82,14 +82,15 @@ async function isDomainAvailable(domain: string): Promise<boolean> {
         for (const name of names) {
           const available = await isDomainAvailable(name);
           console.log(`Checking ${name} → ${available}`);
+          checked++;
           if (available) {
             controller.enqueue(encoder.encode(`${name}\n`));
             count++;
           }
-          if (count >= 10) break;
-          await new Promise((r) => setTimeout(r, 100)); // small throttle
+          if (count >= 5) break;
+          await new Promise((r) => setTimeout(r, 10)); // small throttle
         }
-        console.log(`✅ Done. Scanned ${names.length}, found ${count} available.`);
+        console.log(`✅ Done. Scanned ${checked}, found ${count} available.`);
         controller.close();
       },
     });
