@@ -94,7 +94,7 @@ export default function Home() {
         placeholder="Enter keywords (e.g., fast, trade)"
         value={keywords}
         onChange={(e) => setKeywords(e.target.value)}
-        className="border p-2 rounded w-full max-w-md mb-4"
+        className="border p-2 rounded w-full max-w-md mb-4 placeholder:text-gray-500"
       />
 
       <textarea
@@ -102,7 +102,7 @@ export default function Home() {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         rows={4}
-        className="border p-2 rounded w-full max-w-md mb-4"
+        className="border p-2 rounded w-full max-w-md mb-4 placeholder:text-gray-500"
       />
 
       {isLoading ? (
