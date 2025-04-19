@@ -48,7 +48,7 @@ export default function Home() {
   
         for (const line of lines) {
           const clean = line.trim();
-          if (clean.length > 0) {
+          if (clean && clean.toLowerCase().endsWith(".com")) {
             setDomains((prev) => [...prev, { name: clean }]);
             setLoadedCount((prev) => prev + 1);
           }

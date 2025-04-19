@@ -91,6 +91,9 @@ async function isDomainAvailable(domain: string): Promise<boolean> {
           await new Promise((r) => setTimeout(r, 1)); // small throttle
         }
         console.log(`✅ Done. Scanned ${checked}, found ${count} available.`);
+        if (count === 0) {
+          controller.enqueue(encoder.encode("⚠️ No available domains found this time. Please try again.\n"));
+        }
         controller.close();
       },
     });
