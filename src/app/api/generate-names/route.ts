@@ -50,8 +50,8 @@ async function isDomainAvailable(domain: string): Promise<boolean> {
         Authorization: `Bearer ${GROQ_API_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        model: "llama3-70b-8192", // or "llama3-8b-8192" for lighter version, faster though lower quality
+      body: JSON.stringify({ // llama3-70b-8192
+        model: "llama3-8b-8192", // or "llama3-8b-8192" for lighter version, faster though lower quality
         messages: [{ role: "user", content: prompt }],
         temperature: 0.9,
       }),
@@ -88,7 +88,7 @@ async function isDomainAvailable(domain: string): Promise<boolean> {
             count++;
           }
           if (count >= 5) break;
-          await new Promise((r) => setTimeout(r, 2)); // small throttle
+          await new Promise((r) => setTimeout(r, 1)); // small throttle
         }
         console.log(`✅ Done. Scanned ${checked}, found ${count} available.`);
         controller.close();
