@@ -24,9 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-inter bg-gradient-to-br from-slate-50 to-slate-200 text-gray-800">
         {children}
       </body>
     </html>
